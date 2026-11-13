@@ -194,7 +194,7 @@ void RoomView::paintDecay (juce::Graphics& g, juce::Rectangle<float> area)
     g.drawText ("NACHHALL T60", badge.removeFromTop (16.0f).translated (0.0f, 3.0f), juce::Justification::centred);
     g.setColour (logo);
     g.setFont (lnf.labelFont (18.0f, 0.06f));
-    g.drawText (data.t60 > 0 ? num (data.t60, 2) + " s" : juce::String ("\xe2\x80\x93"), badge, juce::Justification::centred);
+    g.drawText (data.t60 > 0 ? num (data.t60, 2) + " s" : u8 ("\xe2\x80\x93"), badge, juce::Justification::centred);
 }
 
 //==============================================================================
@@ -542,7 +542,7 @@ void SaalAudioProcessorEditor::renderPanel()
     g.setFont (lnf.labelFontRegular (13.0f));
     g.drawText (description, descArea.toFloat(), juce::Justification::centredLeft, true);
     rack::drawLabel (g, "RAUM", switchLabel.toFloat(), lnf, 11.0f, juce::Justification::centredLeft);
-    rack::drawNameplate (g, nameplate, "SAAL", "STUDIO-RAUM \xc2\xb7 FALTUNG", lnf);
+    rack::drawNameplate (g, nameplate, "SAAL", rack::u8 ("STUDIO-RAUM \xc2\xb7 FALTUNG"), lnf);
     rack::drawLabel (g, "PROGRAMM", presetBox.getBounds().toFloat().withY ((float) presetBox.getY() - 16.0f).withHeight (14.0f), lnf, 11.0f, juce::Justification::centredLeft);
     rack::drawTypeTag (g, rack::u8 ("TYP KB-250  \xc2\xb7  NR. 1112"), tagArea, lnf);
 }
